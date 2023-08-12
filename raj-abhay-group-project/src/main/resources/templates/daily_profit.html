@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin_landing_page</title>
+  <link rel="stylesheet" th:href="@{~/css/daily_profit.css}">
+
+  <link rel="stylesheet" th:href="@{~/css/WholeDayData.css}" />
+
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--  <link rel="stylesheet" href="../static/css/dashstyle.css">-->
+<!--  <link rel="stylesheet" href="../static/css/navigation.css">-->
+<!--  <link rel="shortcut icon" type="x-icon" href="../static/images/logo.png">-->
+
+  <link rel="stylesheet" th:href="@{~/css/dashstyle.css}">
+  <link rel="stylesheet" th:href="@{~/css/navigation.css}">
+  <link rel="shortcut icon" type="x-icon" th:href="@{~/images/ServicesImages/logo.png}">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script th:src="@{~/javascript/notification.js}" defer></script>
+
+</head>
+
+<body>
+<div th:replace="fragments/AdminFrag.html :: admin_navigation"></div>
+
+
+<!-- data in cards -->
+
+
+  <div class="container">
+
+    <div class="cardbox">
+      <div class="card">
+        <div>
+          <div class="numbers">25.1k</div>
+          <div class="cardname">Daily Earning</div>
+        </div>
+        <div class="iconbox">
+          <ion-icon name="cart-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="numbers">$2,332K</div>
+          <div class="cardname">Total profit</div>
+        </div>
+        <div class="iconbox">
+          <ion-icon name="cart-outline"></ion-icon>
+
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="numbers">3.2M</div>
+          <div class="cardname">Total no of booking</div>
+
+        </div>
+        <div class="iconbox">
+          <ion-icon name="cart-outline"></ion-icon>
+        </div>
+      </div>
+      <div class="card">
+        <div>
+          <div class="numbers">23.1k</div>
+          <div class="cardname">New customer</div>
+        </div>
+        <div class="iconbox">
+          <ion-icon name="cart-outline"></ion-icon>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- graph part -->
+
+  <div class="main-graph-wrap">
+    <div class="main-visualize-data">
+
+      <div class="profit-data">
+        <h2>Daily Profit</h2>
+        <canvas id="chart"></canvas>
+      </div>
+
+      <div class="pie-graph-data">
+        <h3>Daily Profit</h3>
+        <canvas id="pie-graph"></canvas>
+      </div>
+    </div>
+    <div class="bar-graph-data">
+      <h2>Daily Profit</h2>
+      <canvas id="bar-graph"></canvas>
+    </div>
+  </div>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+    integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script th:src="@{~/javascript/daily_profit.js}"></script>
+
+  <!-- can add extra graphs if needed -->
+
+</body>
+<script>
+  let myPage = "dash";
+  let listGroupItem = Array.from(document.getElementsByClassName("list-group-item"));
+  listGroupItem.forEach(i=>{
+    i.classList.remove("active")
+  })
+  let activeID = document.getElementById(myPage);
+  activeID.classList.add("active");
+</script>
+
+</html>
